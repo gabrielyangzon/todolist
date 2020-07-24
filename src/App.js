@@ -1,19 +1,13 @@
-import React ,{useState}from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import TodoList from './todos/TodoList'
-
+import TodoList from "./todos/TodoList";
 
 function App() {
-
-
-
-
   return (
     <div className="App">
-     Todo List APP
-     
-     <TodoList />
+      Todo List APP
+      <TodoList />
     </div>
   );
 }

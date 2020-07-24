@@ -1,12 +1,10 @@
-*{
-  padding:0;
-  margin:0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-
-
 .App {
- /* // background-color: #282c34; */
+  /* // background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,5 +13,3 @@
   font-size: calc(10px + 2vmin);
   /* color: white; */
 }
-
-
