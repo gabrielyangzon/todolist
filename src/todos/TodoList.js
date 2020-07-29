@@ -20,15 +20,18 @@ const TodoList = ({
   const hasCompleted = todos.some((td) => td.isCompleted);
 
   let completed = hasCompleted ? (
-    todos
-      .filter((td) => td.isCompleted)
-      .map((todo, index) => (
-        <TodoListItem
-          index={index + 1}
-          todo={todo}
-          onDelete={onRemovePressed}
-        />
-      ))
+    <div>
+      Completed todos
+      {todos
+        .filter((td) => td.isCompleted)
+        .map((todo, index) => (
+          <TodoListItem
+            index={index + 1}
+            todo={todo}
+            onDelete={onRemovePressed}
+          />
+        ))}
+    </div>
   ) : (
     <p></p>
   );
