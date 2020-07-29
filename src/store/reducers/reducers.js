@@ -1,4 +1,27 @@
-import { CREATE_TODO, REMOVE_TODO, COMPLETE_TODO } from "../actions/actions";
+import {
+  CREATE_TODO,
+  REMOVE_TODO,
+  COMPLETE_TODO,
+  LOAD_TODOS_IN_PROGRESS,
+  LOAD_TODOS_IN_FAILURE,
+  LOAD_TODOS_IN_SUCCESS,
+} from "../actions/actions";
+
+export const isLoading = (state = false, action) => {
+  const { type } = action;
+
+  switch (type) {
+    case LOAD_TODOS_IN_PROGRESS: {
+      return state;
+    }
+    case LOAD_TODOS_IN_SUCCESS:
+    case LOAD_TODOS_IN_FAILURE: {
+      return false;
+    }
+    default:
+      return state;
+  }
+};
 
 export const todos = (state = [], action) => {
   const { type, payload } = action;
@@ -22,14 +45,6 @@ export const todos = (state = [], action) => {
     ///Update todo
     case COMPLETE_TODO: {
       const { text } = payload;
-      console.log(
-        state.map((todo) => {
-          if (todo.text === text) {
-            return { ...todo, isCompleted: true };
-          }
-          return todo;
-        })
-      );
 
       return state.map((todo) => {
         if (todo.text === text) {
@@ -38,6 +53,7 @@ export const todos = (state = [], action) => {
         return todo;
       });
     }
+
     ///Default state
     default:
       return state;
